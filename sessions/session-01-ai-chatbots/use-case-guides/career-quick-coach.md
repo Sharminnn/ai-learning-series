@@ -150,7 +150,7 @@ class CareerCoach:
     """AI-powered career coaching chatbot"""
 
     def __init__(self):
-        self.model = GenerativeModel("gemini-1.5-flash")
+        self.model = GenerativeModel("gemini-2.5-flash-lite")
         self.system_prompt = CAREER_COACH_PROMPT
         self.conversation_history = []
         self.user_profile = {

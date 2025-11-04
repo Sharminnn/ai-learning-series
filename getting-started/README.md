@@ -4,7 +4,19 @@ Welcome! This folder contains everything you need to set up your environment and
 
 ## 📦 One-Command Setup
 
-For Session 1, install all required dependencies with one command:
+### Step 1: Create `.env` File
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and add your Gemini API key:
+
+```bash
+GEMINI_API_KEY=your-api-key-here
+```
+
+### Step 2: Install Dependencies
 
 ```bash
 pip install -r requirements.txt

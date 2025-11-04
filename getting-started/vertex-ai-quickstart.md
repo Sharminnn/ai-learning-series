@@ -32,7 +32,7 @@ aiplatform.init(project="YOUR_PROJECT_ID", location="us-central1")
 from vertexai.generative_models import GenerativeModel
 
 # Initialize the model
-model = GenerativeModel("gemini-1.5-flash")
+model = GenerativeModel("gemini-2.5-flash-lite")
 
 # Make a simple request
 response = model.generate_content("What is AI?")
@@ -103,22 +103,25 @@ except Exception as e:
 ## Common Issues
 
 ### "Permission denied" error
+
 - Verify your service account has "Vertex AI User" role
 - Check that `GOOGLE_APPLICATION_CREDENTIALS` is set correctly
 
 ### "Model not found" error
-- Ensure you're using a valid model name (e.g., "gemini-1.5-flash", "gemini-1.5-pro")
+
+- Ensure you're using a valid model name (e.g., "gemini-2.5-flash-lite", "gemini-2.5-flash")
 - Check that Vertex AI API is enabled
 
 ### Rate limiting
+
 - Free tier has limits on requests per minute
 - Implement exponential backoff for retries
 
 ## Available Models
 
-- **gemini-1.5-flash**: Fast, efficient model (recommended for most use cases)
-- **gemini-1.5-pro**: More capable, better for complex tasks
-- **gemini-2.0-flash**: Latest model with improved performance
+- **gemini-2.5-flash-lite**: Fast, efficient model (recommended for most use cases)
+- **gemini-2.5-flash**: Balanced performance and quality
+- **gemini-2.5-pro**: Most capable, better for complex tasks
 
 ## Next Steps
 
@@ -129,5 +132,6 @@ except Exception as e:
 ---
 
 **Documentation:**
+
 - [Vertex AI Python SDK](https://cloud.google.com/python/docs/reference/aiplatform/latest)
 - [Gemini API Reference](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini)

@@ -128,7 +128,7 @@ genai.configure(api_key=api_key)
 
 # Test the API
 try:
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash-lite')
     response = model.generate_content("Say 'Hello from Gemini!' in exactly those words.")
     print("✅ API is working!")
     print(f"Response: {response.text}")
@@ -153,21 +153,23 @@ Response: Hello from Gemini!
 
 ## Available Models
 
-### Current Models
+### Current Models (Free Tier)
 
 | Model | Speed | Quality | Best For |
 |-------|-------|---------|----------|
-| `gemini-1.5-flash` | ⚡ Fast | Good | Quick responses, chatbots |
-| `gemini-1.5-pro` | 🐢 Slower | Excellent | Complex tasks, analysis |
-| `gemini-2.0-flash` | ⚡ Very Fast | Good | Real-time applications |
+| `gemini-2.5-flash-lite` | ⚡ Very Fast | Good | Chatbots, quick responses (RECOMMENDED) |
+| `gemini-2.5-flash` | ⚡ Fast | Excellent | General purpose, balanced performance |
+| `gemini-2.5-pro` | 🐢 Slower | Excellent | Complex tasks, analysis |
 
 ### Recommended for Session 1
 
-Use `gemini-1.5-flash` for chatbots - it's fast and cost-effective:
+Use `gemini-2.5-flash-lite` for chatbots - it's the fastest and most reliable on the free tier:
 
 ```python
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-2.5-flash-lite')
 ```
+
+**Note:** If you get a "model not found" error, try `gemini-2.5-flash-lite` instead. Model availability depends on your API key type and region.
 
 ---
 
@@ -179,7 +181,7 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 import google.generativeai as genai
 
 genai.configure(api_key="your-api-key")
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-2.5-flash-lite')
 
 response = model.generate_content("What is AI?")
 print(response.text)
@@ -188,10 +190,11 @@ print(response.text)
 ### With System Prompt
 
 ```python
-response = model.generate_content(
-    "What is AI?",
+model = genai.GenerativeModel(
+    'gemini-2.5-flash-lite',
     system_instruction="You are a helpful AI teacher. Explain concepts simply."
 )
+response = model.generate_content("What is AI?")
 print(response.text)
 ```
 
@@ -223,6 +226,37 @@ response = model.generate_content(
 ---
 
 ## Troubleshooting
+
+### Error: "Model not found" or "is not supported for generateContent"
+
+**Cause:** The model name is not available for your API key type or region
+
+**Solution:**
+
+1. Try `gemini-2.5-flash-lite` (recommended for free tier):
+
+   ```python
+   model = genai.GenerativeModel('gemini-2.5-flash-lite')
+   ```
+
+2. If that doesn't work, try `gemini-2.5-flash`:
+
+   ```python
+   model = genai.GenerativeModel('gemini-2.5-flash')
+   ```
+
+3. List available models to see what's available:
+
+   ```python
+   import google.generativeai as genai
+   genai.configure(api_key="your-api-key")
+   for model in genai.list_models():
+       print(model.name)
+   ```
+
+4. Check your API key type at [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+---
 
 ### Error: "API key not valid"
 

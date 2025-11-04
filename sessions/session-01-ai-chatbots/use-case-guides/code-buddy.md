@@ -174,7 +174,7 @@ class CodeBuddy:
     """Friendly AI code helper for beginners"""
 
     def __init__(self):
-        self.model = GenerativeModel("gemini-1.5-flash")
+        self.model = GenerativeModel("gemini-2.5-flash-lite")
         self.system_prompt = CODE_BUDDY_PROMPT
         self.conversation_history = []
         self.learning_topics = []

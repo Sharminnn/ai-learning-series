@@ -201,16 +201,16 @@ A: Forever! They're part of your learning journey.
 
 ### Advanced Track (6 Sessions)
 
+**Advanced Track Badge:** Dates TBC
+
 | Session | Date | Topic | Submission Deadline |
 |---------|------|-------|---------------------|
-| 7 | Feb 18 | Advanced RAG Patterns | Mar 4 |
-| 8 | Mar 4 | Production Deployment | Mar 18 |
-| 9 | Mar 18 | Advanced Agents | Apr 1 |
-| 10 | Apr 1 | System Design | Apr 15 |
-| 11 | Apr 15 | Performance Optimization | Apr 29 |
-| 12 | Apr 29 | Capstone Project | May 13 |
-
-**Advanced Track Badge:** Complete all 12 sessions + integrated platform by May 13
+| 7 | TBC | Advanced RAG Patterns | TBC |
+| 8 | TBC | Production Deployment | TBC |
+| 9 | TBC | Advanced Agents | TBC |
+| 10 | TBC | System Design | TBC |
+| 11 | TBC | Performance Optimization | TBC |
+| 12 | TBC | Capstone Project | TBC |
 
 ### Community Champion
 

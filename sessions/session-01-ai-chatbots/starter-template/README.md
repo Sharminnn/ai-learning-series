@@ -17,7 +17,13 @@ pip install -r requirements.txt
 
 ### 2. Configure
 
-Create a `.env` file in the project root:
+Create a `.env` file from the template:
+
+```bash
+cp ../../.env.example .env
+```
+
+Then edit `.env` and add your Gemini API key:
 
 ```bash
 GEMINI_API_KEY=your-gemini-api-key-here

@@ -12,10 +12,17 @@ Before running the demo, make sure you have:
 
 1. ✅ Python 3.11+ installed
 2. ✅ Gemini API key ([Get one here](../../getting-started/gemini-api-key-setup.md))
-3. ✅ `.env` file with your API key in the project root:
-   ```
-   GEMINI_API_KEY=your-api-key-here
-   ```
+3. ✅ `.env` file with your API key
+
+### Quick Setup
+
+```bash
+# Create .env from template
+cp ../../../.env.example .env
+
+# Edit .env and add your Gemini API key
+GEMINI_API_KEY=your-api-key-here
+```
 
 ---
 
@@ -60,11 +67,13 @@ The demo is divided into 5 progressive sections. Start with Section 1 and uncomm
 ### Section 1: Basic API Call ✅ (ACTIVE BY DEFAULT)
 
 **What you'll learn:**
+
 - How to configure the Gemini API
 - Making your first API call
 - Getting a response from the AI
 
 **Key code:**
+
 ```python
 import google.generativeai as genai
 
@@ -75,7 +84,8 @@ print(response.text)
 ```
 
 **Output:**
-```
+
+```bash
 AI Response: [AI's response about WCC]
 🎉 SUCCESS! You just talked to AI! 🎉
 ```
@@ -85,17 +95,20 @@ AI Response: [AI's response about WCC]
 ### Section 2: Add Personality with System Prompts
 
 **What you'll learn:**
+
 - Using system prompts to give AI a personality
 - How system prompts influence responses
 - Creating domain-specific AI assistants
 
 **To activate:**
+
 1. Find the `'''` (triple quotes) on line ~49
 2. Delete them to uncomment Section 1 code
 3. Find the `'''` on line ~64
 4. Delete them to uncomment Section 2
 
 **Key code:**
+
 ```python
 wcc_system_prompt = '''You are a helpful assistant for WCC...'''
 
@@ -108,6 +121,7 @@ response = model_with_personality.generate_content("What is WCC?")
 ```
 
 **What changes:**
+
 - Responses become more WCC-focused
 - AI shows personality and enthusiasm
 - Answers align with community values
@@ -117,15 +131,18 @@ response = model_with_personality.generate_content("What is WCC?")
 ### Section 3: Add Conversation Memory
 
 **What you'll learn:**
+
 - Maintaining conversation history
 - Context-aware responses
 - Building multi-turn conversations
 
 **To activate:**
+
 1. Find the `"""` (triple quotes) on line ~114
 2. Delete them to uncomment Section 3
 
 **Key code:**
+
 ```python
 class WCCChatBot:
     def __init__(self):
@@ -144,6 +161,7 @@ class WCCChatBot:
 ```
 
 **What you'll see:**
+
 - Bot remembers previous messages
 - Responses reference earlier context
 - Natural multi-turn conversations
@@ -153,16 +171,19 @@ class WCCChatBot:
 ### Section 4: Explore Model Parameters
 
 **What you'll learn:**
+
 - Temperature (creativity vs consistency)
 - Top-p (diversity of responses)
 - Top-k (token selection)
 - Max tokens (response length)
 
 **To activate:**
+
 1. Find the `"""` (triple quotes) on line ~167
 2. Delete them to uncomment Section 4
 
 **Key code:**
+
 ```python
 generation_config = genai.types.GenerationConfig(
     temperature=0.7,      # 0=deterministic, 2=very creative
@@ -191,18 +212,21 @@ model = genai.GenerativeModel(
 ### Section 5: Create Web Interface with Streamlit
 
 **What you'll learn:**
+
 - Building interactive web interfaces
 - Streamlit components (chat, sliders, etc.)
 - Session state management
 - Real-time parameter adjustment
 
 **To activate:**
+
 1. Find the `'''` (triple quotes) on line ~246
 2. Delete them to uncomment Section 5
 3. Install Streamlit: `pip install streamlit`
 4. Run: `streamlit run wcc_demo.py`
 
 **Key features:**
+
 - Interactive chat interface
 - Adjustable model parameters with sliders
 - Conversation history display
@@ -210,6 +234,7 @@ model = genai.GenerativeModel(
 - Mobile-friendly design
 
 **Streamlit code highlights:**
+
 ```python
 import streamlit as st
 
@@ -258,6 +283,7 @@ Your browser will open with an interactive web interface!
 ### Error: "GEMINI_API_KEY not found"
 
 **Solution:**
+
 1. Create `.env` file in project root
 2. Add: `GEMINI_API_KEY=your-key-here`
 3. Make sure `.env` is in the same folder as `wcc_demo.py`
@@ -265,6 +291,7 @@ Your browser will open with an interactive web interface!
 ### Error: "ModuleNotFoundError: No module named 'google'"
 
 **Solution:**
+
 ```bash
 pip install google-generativeai
 ```
@@ -272,6 +299,7 @@ pip install google-generativeai
 ### Error: "API key not valid"
 
 **Solution:**
+
 1. Get a new API key: [Gemini API Key Setup](../../getting-started/gemini-api-key-setup.md)
 2. Update your `.env` file
 3. Try again
@@ -279,6 +307,7 @@ pip install google-generativeai
 ### Streamlit not starting
 
 **Solution:**
+
 ```bash
 pip install streamlit
 streamlit run wcc_demo.py
@@ -315,8 +344,9 @@ test_questions = [
 Try different models:
 
 ```python
-MODEL_ID = 'gemini-1.5-pro'  # More powerful but slower
-MODEL_ID = 'gemini-1.5-flash'  # Faster and cheaper
+MODEL_ID = 'gemini-2.5-pro'  # More powerful but slower
+MODEL_ID = 'gemini-2.5-flash'  # Balanced performance
+MODEL_ID = 'gemini-2.5-flash-lite'  # Fastest and cheapest (default)
 ```
 
 ### Extend the Web Interface

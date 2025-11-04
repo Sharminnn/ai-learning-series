@@ -32,7 +32,7 @@ class SimpleBot:
             system_prompt: Optional system prompt to set bot personality
         """
         self.model = genai.GenerativeModel(
-            "gemini-1.5-flash",
+            "gemini-2.5-flash-lite",
             system_instruction=system_prompt or "You are a helpful assistant."
         )
         self.system_prompt = system_prompt or "You are a helpful assistant."

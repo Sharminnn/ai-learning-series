@@ -52,16 +52,16 @@
 **Solution:**
 Use valid model names:
 
-- `gemini-1.5-flash` (recommended)
-- `gemini-1.5-pro`
-- `gemini-2.0-flash`
+- `gemini-2.5-flash-lite` (recommended for free tier)
+- `gemini-2.5-flash`
+- `gemini-2.5-pro`
 
 ```python
 # Verify model name
 from vertexai.generative_models import GenerativeModel
 
 try:
-    model = GenerativeModel("gemini-1.5-flash")
+    model = GenerativeModel("gemini-2.5-flash-lite")
     print("✅ Model loaded successfully")
 except Exception as e:
     print(f"❌ Error: {e}")
